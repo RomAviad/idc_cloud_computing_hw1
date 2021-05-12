@@ -21,8 +21,8 @@ def set_entry(plate, parking_lot, db):
 def get_ticket_data(ticket_id, db):
     now = datetime.datetime.utcnow()
     ticket_data = db.get(ticket_id, {})
-    ticket_data["start_date"] = datetime.datetime.fromtimestamp(ticket_data["start_date"])
     is_valid = len(ticket_data) > 0
+    ticket_data["start_date"] = datetime.datetime.fromtimestamp(ticket_data["start_date"])
     result = {"is_valid": is_valid}
     if is_valid:
         seconds_elapsed = (now - ticket_data["start_date"]).seconds
