@@ -26,6 +26,26 @@ Build a system that would track and compute cars entry & exit from parking lots,
 * For the EC2-based deployment - I used `Flask`
 * For data persistence I chose to use a Redis instance on _Elasticache_ - the same  instance serves both the EC2 deployment and the lambda deployment.
 
+
+### Returned payloads formats
+* Entry
+```JSON
+{
+    "ticketId": "1-2-3__123__1620806288.366351",
+    "status": "success"
+}
+```
+* Exit
+```JSON
+{
+    "ticketId": "1-2-3__123__1620806288.366351",
+    "plate": "1-2-3",
+    "parkingLot": "123",
+    "startDate": "2021-05-12 07:58:08.366351",
+    "toPay": 2.5
+}
+```
+
 ## Run instructions
 ### First-run dependencies:
 * If you don't have AWS CLI installed, The `init.sh` script should get you going on a linux machine.
